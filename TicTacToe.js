@@ -23,6 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
         box.style.backgroundColor = playerOne ? 'red' : 'aqua';
         playerOne = !playerOne;
         numClicks = numClicks + 1;
+        event.stopImmediatePropagation();
+        $( `#${box.id}` ).click(function( event ) {
+            event.stopPropagation();
+          });
         setBox(box);
         if (numClicks >= 5) {
             hasWon();
